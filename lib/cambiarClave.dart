@@ -26,18 +26,32 @@ class CambiarClaveEstado extends State<CambiarClave> {
         title: Text('Cambiar Clave'),
       ),
       body: Container(
+        color: Colors.blue,
+        padding: EdgeInsets.all(20),
         child: Form(
           key: llaveFormulario,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextFormField(
+              Text('Cambiar clave',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 33,
+                  ),
+                  textAlign: TextAlign.center),
+              Card(
+                  child: TextFormField(
                 decoration: InputDecoration(labelText: 'Correo'),
                 validator: (value) {
                   return value.isEmpty ? 'El campo Correo está vacio' : null;
                 },
                 onSaved: (newValue) => _correo = newValue,
-              ),
+              )),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red, // background
+                  onPrimary: Colors.white, //
+                ),
                 child: Text("Enviar"),
                 onPressed: () {
                   final form = llaveFormulario.currentState;

@@ -94,6 +94,12 @@ class InicioDeSesionState extends State<InicioDeSesion> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  Text('Inicio de sesión',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 33,
+                      ),
+                      textAlign: TextAlign.center),
                   Card(
                     child: Column(children: [
                       TextFormField(
@@ -190,7 +196,10 @@ class InicioDeSesionState extends State<InicioDeSesion> {
                           onPressed: () => bloc.inicioDeSesionFaceebook(),
                         ),
                         TextButton(
-                          child: Text('Olvide contraseña'),
+                          child: Text(
+                            'Olvide contraseña',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           onPressed: () {
                             Navigator.push(
                               context,

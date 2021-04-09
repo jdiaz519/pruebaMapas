@@ -86,27 +86,38 @@ class RegistroState extends State<Registro> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Nombres Completos'),
-                validator: (value) {
-                  return value.isEmpty ? 'El campo Nombres está vacio' : null;
-                },
-                onSaved: (newValue) => _nombres = newValue,
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Correo'),
-                validator: (value) {
-                  return value.isEmpty ? 'El campo correo está vacio' : null;
-                },
-                onSaved: (newValue) => _correo = newValue,
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Clave'),
-                validator: (value) {
-                  return value.isEmpty ? 'El campo clave está vacio' : null;
-                },
-                onSaved: (newValue) => _clave = newValue,
-              ),
+              Text('Nuevo registro',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 33,
+                  ),
+                  textAlign: TextAlign.center),
+              Card(
+                  child: Column(children: [
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Nombres Completos'),
+                  validator: (value) {
+                    return value.isEmpty ? 'El campo Nombres está vacio' : null;
+                  },
+                  onSaved: (newValue) => _nombres = newValue,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Correo'),
+                  validator: (value) {
+                    return value.isEmpty ? 'El campo correo está vacio' : null;
+                  },
+                  onSaved: (newValue) => _correo = newValue,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Clave'),
+                  validator: (value) {
+                    return value.isEmpty || value.length < 6
+                        ? 'El campo clave está vacio o tiene  menos de 6 caracteres'
+                        : null;
+                  },
+                  onSaved: (newValue) => _clave = newValue,
+                ),
+              ])),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.red, // background
